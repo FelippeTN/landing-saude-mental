@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+@theme static {
+  --color-fundo: #ffffff;
+  --color-secao: #fffbea;
+  --color-card: #fcefb4;
+  --color-botao: #f5d76e;
+  --color-texto: #4a4232;
+
+  --font-sans: 'Nunito Variable', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+
+  --animate-respirar: respirar 7s ease-in-out infinite;
+  --animate-flutuar: flutuar 9s ease-in-out infinite;
+  --animate-modal: modal-entrada 240ms ease-out;
+  --animate-painel: painel-entrada 200ms ease-out;
+
+  @keyframes respirar {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes flutuar {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes modal-entrada {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.98);
+    }
+  }
+
+  @keyframes painel-entrada {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Trava a rolagem da página enquanto um modal está aberto. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-fundo);
+    color: var(--color-texto);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-texto);
+    outline-offset: 2px;
+  }
+
+  dialog::backdrop {
+    background-color: rgb(74 66 50 / 0.55);
+  }
+}
+
+@layer components {
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background-color: var(--color-botao);
+    color: var(--color-texto);
+    font-weight: 800;
+    text-align: center;
+    box-shadow: 0 3px 0 var(--color-texto);
+    cursor: pointer;
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease;
+  }
+
+  .botao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--color-texto);
+  }
+
+  .botao:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 var(--color-texto);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
