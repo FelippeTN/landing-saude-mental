@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { CareNetwork } from './components/CareNetwork'
 import { Footer } from './components/Footer'
 import { HelpSection } from './components/HelpSection'
 import { Hero } from './components/Hero'
+import { InterventionProposal } from './components/InterventionProposal'
+import { Sources } from './components/Sources'
 import { TopicCard } from './components/TopicCard'
 import { TopicModal } from './components/TopicModal'
+import { WhyItMatters } from './components/WhyItMatters'
 import { topics, type Topic } from './content/topics'
 
 function App() {
@@ -14,10 +18,12 @@ function App() {
       <Hero />
 
       <main>
+        <WhyItMatters />
+
         <section
           id="temas"
           aria-labelledby="temas-titulo"
-          className="scroll-mt-4 bg-fundo px-5 py-16 sm:px-8 md:py-24"
+          className="scroll-mt-4 bg-secao px-5 py-16 sm:px-8 md:py-24"
         >
           <div className="mx-auto max-w-6xl">
             <h2
@@ -41,6 +47,9 @@ function App() {
           </div>
         </section>
 
+        <CareNetwork />
+        <InterventionProposal />
+        <Sources />
         <HelpSection />
       </main>
 

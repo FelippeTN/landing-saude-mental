@@ -63,6 +63,11 @@ export const topics: Topic[] = [
             answer:
               'Sentir-se melhor pode ser justamente um sinal de que o tratamento está funcionando. Por isso, a decisão de manter, ajustar ou encerrar o uso deve ser tomada junto com a equipe de saúde.',
           },
+          {
+            question: 'É comum ter dificuldade para manter o tratamento?',
+            answer:
+              'Sim. Uma revisão brasileira cita a estimativa de que cerca de 40% a 60% das pessoas não seguem o tratamento medicamentoso como foi prescrito (Santos, 2019, citado por Araújo et al., 2023). A dificuldade é comum e merece apoio, não julgamento.',
+          },
         ],
       },
       {
@@ -129,6 +134,26 @@ export const topics: Topic[] = [
             answer:
               'Conte isso à equipe de saúde. Ela pode avaliar alternativas e orientar sobre o acesso a medicamentos pelo SUS, inclusive na unidade básica de saúde ou no CAPS da sua região.',
           },
+          {
+            question: 'Não entendi como usar o medicamento. O que faço?',
+            answer:
+              'Peça para explicarem de novo, quantas vezes precisar. Confirme a quantidade, os horários e a duração do uso antes de sair da consulta ou da farmácia. Muitas pessoas têm essa dúvida.',
+          },
+          {
+            question: 'Como o farmacêutico pode ajudar?',
+            answer:
+              'O farmacêutico pode explicar como usar e guardar o medicamento, quais reações observar e quais combinações evitar. Também pode ajudar você a organizar a rotina do tratamento.',
+          },
+          {
+            question: 'Tenho mais de um médico. O que muda?',
+            answer:
+              'Leve a lista de tudo o que você usa a todas as consultas, inclusive medicamentos sem receita, chás e suplementos. Assim, os profissionais conseguem identificar repetições e combinações arriscadas.',
+          },
+          {
+            question: 'Posso usar outro medicamento por conta própria?',
+            answer:
+              'É melhor perguntar antes. A automedicação pode causar interações e piorar o quadro, mesmo quando o produto parece inofensivo. A farmácia ou a equipe de saúde podem orientar você.',
+          },
         ],
       },
     ],
@@ -164,6 +189,11 @@ export const topics: Topic[] = [
             answer:
               'Alguns efeitos diminuem nas primeiras semanas, enquanto o corpo se adapta. Outros podem continuar ou aparecer mais tarde. Se algo incomodar, conte à equipe de saúde, mesmo que pareça pequeno.',
           },
+          {
+            question: 'Todos os antidepressivos têm os mesmos efeitos?',
+            answer:
+              'Não. Um estudo publicado na The Lancet em 2025 reuniu 151 pesquisas, com mais de 58 mil pessoas e 30 antidepressivos, a maioria com cerca de 8 semanas de duração. Entre alguns medicamentos, a diferença média chegou a cerca de 4 kg no peso e 21 batimentos por minuto na frequência cardíaca (King’s College London, 2025). Os autores não classificam medicamentos como bons ou ruins: o objetivo é escolher junto com a equipe e acompanhar quando for preciso. Não troque nem pare o medicamento por conta própria.',
+          },
         ],
       },
       {
@@ -179,6 +209,9 @@ export const topics: Topic[] = [
             'Febre alta com rigidez muscular ou confusão',
             'Desmaio, convulsão ou palpitações fortes',
             'Agitação intensa ou mudança súbita e extrema de humor',
+            'Tremores, suor intenso, agitação, febre ou rigidez, principalmente horas depois de iniciar ou aumentar um medicamento',
+            'Em quem usa lítio: vômitos ou diarreia intensos, tremores fortes, desequilíbrio ou confusão',
+            'Em quem usa ácido valproico: confusão de início súbito, sonolência intensa ou vômitos',
           ],
         },
         questions: [
@@ -226,6 +259,16 @@ export const topics: Topic[] = [
               'Dependendo do caso, ela pode acompanhar a evolução, ajustar a dose ou o horário, tratar o efeito ou trocar o medicamento. Por isso, vale a pena contar o que está acontecendo.',
           },
           {
+            question: 'Preciso contar quais medicamentos uso em outros atendimentos?',
+            answer:
+              'Sim, inclusive no pronto-socorro e em consultas de outras especialidades. Algumas combinações aumentam o risco de reações graves. Avise também sobre álcool e outras drogas: essa informação serve para cuidar de você com segurança.',
+          },
+          {
+            question: 'Uso lítio. Por que preciso de cuidado extra?',
+            answer:
+              'Pequenas mudanças podem aumentar a quantidade de lítio no corpo. Desidratação, uso irregular, álcool, dieta pobre em sal e alguns remédios para pressão elevam o risco. Mantenha os exames combinados e fale logo com a equipe se tiver vômitos, diarreia ou outra situação que possa causar desidratação.',
+          },
+          {
             question: 'Posso comunicar a reação às autoridades de saúde?',
             answer:
               'Sim. A Anvisa recebe notificações de eventos adversos pelo VigiMed, que também pode ser usado por pacientes. Isso não substitui o atendimento e ajuda a monitorar a segurança dos medicamentos.',
@@ -264,6 +307,11 @@ export const topics: Topic[] = [
             question: 'Por que parar de repente pode ser arriscado?',
             answer:
               'O corpo pode ter se adaptado ao medicamento, e a saída repentina pode causar sintomas. Também pode haver retorno ou piora do quadro tratado. O risco varia conforme o medicamento, a dose e o tempo de uso, e em alguns casos pode ser sério.',
+          },
+          {
+            question: 'O que os estudos mostram sobre não seguir o tratamento?',
+            answer:
+              'No caso dos antidepressivos, não seguir o tratamento foi associado a mais risco de recaída, internações e idas ao pronto-socorro, além de sintomas mais graves (Ho et al., 2016, citado por Araújo et al., 2023). Por isso, vale procurar ajuda ao primeiro sinal de dificuldade.',
           },
         ],
       },

@@ -1,3 +1,10 @@
+const navLinks = [
+  { href: '#temas', label: 'Temas' },
+  { href: '#rede', label: 'Rede de cuidado' },
+  { href: '#proposta', label: 'Proposta' },
+  { href: '#fontes', label: 'Fontes' },
+]
+
 function HeroIllustration() {
   return (
     <svg
@@ -49,14 +56,22 @@ export function Hero() {
   return (
     <div className="bg-secao">
       <div className="px-5 sm:px-8">
-        <header className="mx-auto flex max-w-6xl items-center justify-between gap-4 py-5">
+        <header className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 py-5">
           <span className="text-xl font-black tracking-tight">Cuidar em Dia</span>
-          <a
-            href="#temas"
-            className="rounded-full px-2 py-1 font-bold underline decoration-botao decoration-4 underline-offset-4"
-          >
-            Temas
-          </a>
+          <nav aria-label="Seções da página">
+            <ul className="flex flex-wrap gap-x-2 gap-y-1">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="inline-block rounded-full px-2 py-1 font-bold underline decoration-botao decoration-4 underline-offset-4"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </header>
 
         <div className="mx-auto grid max-w-6xl items-center gap-10 pt-6 pb-10 lg:grid-cols-2 lg:pt-10 lg:pb-16">
