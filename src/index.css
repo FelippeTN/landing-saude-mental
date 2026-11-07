@@ -6,13 +6,22 @@
   --color-card: #fcefb4;
   --color-botao: #f5d76e;
   --color-texto: #4a4232;
+  --color-linha: rgb(74 66 50 / 0.12);
 
   --font-sans: 'Nunito Variable', ui-rounded, 'Segoe UI', system-ui, sans-serif;
 
+  /* Curva de desaceleração usada nas transições do iOS. */
+  --ease-ios: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --shadow-suave:
+    0 1px 2px rgb(74 66 50 / 0.06), 0 4px 16px -4px rgb(74 66 50 / 0.1);
+  --shadow-elevado:
+    0 2px 4px rgb(74 66 50 / 0.06), 0 16px 40px -12px rgb(74 66 50 / 0.22);
+
   --animate-respirar: respirar 7s ease-in-out infinite;
   --animate-flutuar: flutuar 9s ease-in-out infinite;
-  --animate-modal: modal-entrada 240ms ease-out;
-  --animate-painel: painel-entrada 200ms ease-out;
+  --animate-painel: painel-entrada 320ms var(--ease-ios);
+  --animate-hero: hero-entrada 900ms var(--ease-ios) both;
 
   @keyframes respirar {
     0%,
@@ -34,24 +43,65 @@
     }
   }
 
-  @keyframes modal-entrada {
-    from {
-      opacity: 0;
-      transform: translateY(16px) scale(0.98);
-    }
-  }
-
   @keyframes painel-entrada {
     from {
       opacity: 0;
-      transform: translateY(6px);
+      transform: translateY(8px);
     }
+  }
+
+  @keyframes hero-entrada {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(6px);
+    }
+  }
+}
+
+@keyframes modal-entrada {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes modal-saida {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes sheet-entrada {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sheet-saida {
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fundo-entrada {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fundo-saida {
+  to {
+    opacity: 0;
   }
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Compensa a barra de navegação fixa ao pular para uma seção. */
+    scroll-padding-top: 5rem;
   }
 
   /* Trava a rolagem da página enquanto um modal está aberto. */
@@ -64,6 +114,7 @@
     color: var(--color-texto);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
   }
 
   :focus-visible {
@@ -72,7 +123,14 @@
   }
 
   dialog::backdrop {
-    background-color: rgb(74 66 50 / 0.55);
+    background-color: rgb(74 66 50 / 0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: fundo-entrada 300ms ease-out;
+  }
+
+  dialog[data-fechando]::backdrop {
+    animation: fundo-saida 280ms ease-in forwards;
   }
 }
 
@@ -89,22 +147,109 @@
     color: var(--color-texto);
     font-weight: 800;
     text-align: center;
-    box-shadow: 0 3px 0 var(--color-texto);
+    box-shadow: var(--shadow-suave);
     cursor: pointer;
     transition:
-      transform 150ms ease,
-      box-shadow 150ms ease;
+      transform 300ms var(--ease-ios),
+      box-shadow 300ms var(--ease-ios),
+      filter 300ms var(--ease-ios);
   }
 
   .botao:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 0 var(--color-texto);
+    filter: brightness(1.04);
+    box-shadow: var(--shadow-elevado);
   }
 
   .botao:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 0 var(--color-texto);
+    transform: scale(0.97);
+    filter: brightness(0.97);
+    transition-duration: 100ms;
   }
+
+  .botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 3rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    transition: opacity 200ms ease;
+  }
+
+  .botao-secundario:hover {
+    opacity: 0.7;
+  }
+
+  /* Superfície translúcida com desfoque, como as barras do iOS. */
+  .vidro {
+    background-color: rgb(255 251 234 / 0.72);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .vidro {
+      background-color: var(--color-secao);
+    }
+  }
+
+  /* Cartões que respondem ao toque e ao passar o mouse. */
+  .cartao {
+    box-shadow: var(--shadow-suave);
+    transition:
+      transform 400ms var(--ease-ios),
+      box-shadow 400ms var(--ease-ios);
+  }
+
+  @media (hover: hover) {
+    .cartao:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevado);
+    }
+  }
+
+  .sem-barra {
+    scrollbar-width: none;
+  }
+
+  .sem-barra::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Bottom sheet no celular, janela centralizada em telas maiores. */
+  .folha {
+    animation: sheet-entrada 450ms var(--ease-ios);
+  }
+
+  .folha[data-fechando] {
+    animation: sheet-saida 300ms cubic-bezier(0.4, 0, 1, 1) forwards;
+  }
+
+  @media (width >= 40rem) {
+    .folha {
+      animation: modal-entrada 350ms var(--ease-ios);
+    }
+
+    .folha[data-fechando] {
+      animation: modal-saida 220ms ease-in forwards;
+    }
+  }
+}
+
+/* Revelação ao rolar: o conteúdo sobe e aparece quando entra na tela. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 700ms var(--ease-ios),
+    transform 700ms var(--ease-ios);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+[data-reveal].visivel {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -118,5 +263,11 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
   }
 }

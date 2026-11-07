@@ -38,13 +38,21 @@ export function Tabs({ items, label }: TabsProps) {
 
   return (
     <div>
-      <div className="sticky top-0 z-10 bg-fundo py-3">
+      <div className="sticky top-0 z-10 -mx-5 bg-fundo/80 px-5 py-3 backdrop-blur-md sm:-mx-8 sm:px-8">
         <div
           role="tablist"
           aria-label={label}
           onKeyDown={handleKeyDown}
-          className="flex gap-1 rounded-full bg-secao p-1"
+          className="relative flex rounded-full bg-card/70 p-1"
         >
+          <span
+            aria-hidden="true"
+            className="absolute top-1 bottom-1 left-1 rounded-full bg-fundo shadow-suave transition-transform duration-[450ms] ease-ios"
+            style={{
+              width: `calc((100% - 0.5rem) / ${items.length})`,
+              transform: `translateX(${activeIndex * 100}%)`,
+            }}
+          />
           {items.map((item, index) => {
             const isActive = index === activeIndex
             return (
@@ -60,8 +68,8 @@ export function Tabs({ items, label }: TabsProps) {
                 aria-controls={isActive ? panelId(item.id) : undefined}
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => setActiveIndex(index)}
-                className={`min-h-11 flex-1 cursor-pointer rounded-full px-2 text-sm font-extrabold transition-colors duration-200 sm:text-base ${
-                  isActive ? 'bg-botao' : 'hover:bg-card'
+                className={`relative min-h-11 flex-1 basis-0 cursor-pointer rounded-full px-2 text-sm font-extrabold transition-opacity duration-200 sm:text-base ${
+                  isActive ? '' : 'opacity-70 hover:opacity-100'
                 }`}
               >
                 {item.label}

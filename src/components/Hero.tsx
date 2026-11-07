@@ -1,10 +1,3 @@
-const navLinks = [
-  { href: '#temas', label: 'Temas' },
-  { href: '#rede', label: 'Rede de cuidado' },
-  { href: '#proposta', label: 'Proposta' },
-  { href: '#fontes', label: 'Fontes' },
-]
-
 function HeroIllustration() {
   return (
     <svg
@@ -56,40 +49,41 @@ export function Hero() {
   return (
     <div className="bg-secao">
       <div className="px-5 sm:px-8">
-        <header className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 py-5">
-          <span className="text-xl font-black tracking-tight">Cuidar em Dia</span>
-          <nav aria-label="Seções da página">
-            <ul className="flex flex-wrap gap-x-2 gap-y-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="inline-block rounded-full px-2 py-1 font-bold underline decoration-botao decoration-4 underline-offset-4"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </header>
-
-        <div className="mx-auto grid max-w-6xl items-center gap-10 pt-6 pb-10 lg:grid-cols-2 lg:pt-10 lg:pb-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 pt-10 pb-10 lg:grid-cols-2 lg:pt-16 lg:pb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl font-black tracking-tight text-balance sm:text-5xl lg:text-6xl">
+            <h1 className="animate-hero text-4xl leading-[1.05] font-black tracking-tighter text-balance sm:text-5xl lg:text-6xl">
               Entender o tratamento também é cuidar da mente.
             </h1>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-pretty sm:text-xl lg:mx-0">
+            <p className="mx-auto mt-6 max-w-xl animate-hero text-lg text-pretty opacity-85 [animation-delay:120ms] sm:text-xl lg:mx-0">
               Respostas simples e acolhedoras sobre o uso de medicamentos na saúde
               mental, para você conversar com mais confiança com a sua equipe de
               saúde.
             </p>
-            <a href="#temas" className="botao mt-8 text-lg">
-              Escolher um tema
-            </a>
+            <div className="mt-8 flex animate-hero flex-wrap items-center justify-center gap-x-4 gap-y-2 [animation-delay:240ms] lg:justify-start">
+              <a href="#temas" className="botao text-lg">
+                Escolher um tema
+              </a>
+              <a href="#importancia" className="botao-secundario text-lg">
+                Saiba por quê
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="3"
+                  aria-hidden="true"
+                  className="size-4"
+                >
+                  <path d="m9 6 6 6-6 6" />
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <HeroIllustration />
+          <div className="animate-hero [animation-delay:360ms]">
+            <HeroIllustration />
+          </div>
         </div>
       </div>
 

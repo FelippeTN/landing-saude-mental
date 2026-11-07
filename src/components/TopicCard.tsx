@@ -8,8 +8,8 @@ type TopicCardProps = {
 
 export function TopicCard({ topic, onOpen }: TopicCardProps) {
   return (
-    <article className="flex h-full flex-col items-start rounded-[2rem] bg-card p-7 transition-transform duration-200 hover:-translate-y-1 sm:p-8">
-      <span className="flex size-16 items-center justify-center rounded-full bg-fundo">
+    <article className="cartao flex h-full flex-col items-start rounded-[2rem] bg-card p-7 sm:p-8">
+      <span className="flex size-16 items-center justify-center rounded-[1.25rem] bg-fundo shadow-suave">
         <TopicIcon name={topic.icon} className="size-9" />
       </span>
       <h3 className="mt-6 text-2xl font-extrabold tracking-tight text-balance">
