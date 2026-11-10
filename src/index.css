@@ -101,7 +101,13 @@
   html {
     scroll-behavior: smooth;
     /* Compensa a barra de navegação fixa ao pular para uma seção. */
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 7rem;
+  }
+
+  @media (width >= 40rem) {
+    html {
+      scroll-padding-top: 5rem;
+    }
   }
 
   /* Trava a rolagem da página enquanto um modal está aberto. */

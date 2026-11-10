@@ -78,7 +78,7 @@ export function NavBar() {
           scrolled ? 'border-linha shadow-suave' : 'border-transparent'
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 py-2 sm:h-16 sm:flex-row sm:justify-between sm:gap-4 sm:py-0">
           <a
             href="#"
             className="shrink-0 rounded-lg text-lg font-black tracking-tight sm:text-xl"
@@ -86,10 +86,10 @@ export function NavBar() {
             Cuidar em Dia
           </a>
 
-          <nav aria-label="Seções da página" className="min-w-0">
+          <nav aria-label="Seções da página" className="w-full min-w-0 sm:w-auto">
             <ul
               ref={listRef}
-              className="sem-barra relative flex snap-x gap-1 overflow-x-auto p-1"
+              className="sem-barra relative mx-auto flex w-fit max-w-full snap-x gap-1 overflow-x-auto p-1"
             >
               <span
                 aria-hidden="true"
