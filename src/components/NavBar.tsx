@@ -3,7 +3,6 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 const navLinks = [
   { id: 'temas', label: 'Temas' },
   { id: 'rede', label: 'Rede de cuidado' },
-  { id: 'proposta', label: 'Proposta' },
   { id: 'fontes', label: 'Fontes' },
 ]
 

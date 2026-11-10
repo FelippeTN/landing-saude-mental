@@ -3,7 +3,6 @@ import { CareNetwork } from './components/CareNetwork'
 import { Footer } from './components/Footer'
 import { HelpSection } from './components/HelpSection'
 import { Hero } from './components/Hero'
-import { InterventionProposal } from './components/InterventionProposal'
 import { Sources } from './components/Sources'
 import { TopicCard } from './components/TopicCard'
 import { TopicModal } from './components/TopicModal'
@@ -53,7 +52,6 @@ function App() {
         </section>
 
         <CareNetwork />
-        <InterventionProposal />
         <Sources />
         <HelpSection />
       </main>

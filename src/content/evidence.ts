@@ -1,4 +1,4 @@
-// Dados, rede de cuidado, proposta de intervenção e referências do site.
+// Dados, rede de cuidado e referências do site.
 // Regras: todo número tem fonte e data; sem doses, esquemas de retirada ou ranking de medicamentos.
 // Conteúdo educativo geral: deve ser revisado por um profissional de saúde antes da publicação.
 
@@ -62,109 +62,6 @@ export const careNetworkNote =
 
 export const surveyNote =
   'Ainda faltam dados nacionais recentes. A Pesquisa Nacional de Saúde Mental está em coleta e havia realizado 1.011 entrevistas até 28 de agosto de 2026, com expectativa de cerca de 10 mil ao final (Ministério da Saúde, 2026).'
-
-export type InterventionAxis = {
-  title: string
-  action: string
-  basis: string
-}
-
-export const proposalObjective =
-  'Promover o uso racional de psicofármacos na rede pública, com decisão compartilhada, identificação precoce de reações adversas e prevenção da interrupção sem orientação.'
-
-export const proposalAudience =
-  'Pessoas em tratamento e familiares, além das equipes de CAPS, UBS e farmácia.'
-
-export const proposalSetting = 'Piloto em um CAPS e nas UBS de referência.'
-
-export const interventionAxes: InterventionAxis[] = [
-  {
-    title: 'Acompanhamento no início',
-    action:
-      'Orientação farmacêutica ao iniciar ou trocar o medicamento, com novos contatos até o 3º mês.',
-    basis: 'Benefício na adesão concentrado nos três primeiros meses (Alves, 2019, citado por Araújo et al., 2023).',
-  },
-  {
-    title: 'Plano compartilhado',
-    action:
-      'Registrar no Projeto Terapêutico Singular para que serve o medicamento, como usar, o que esperar e as preferências da pessoa.',
-    basis: 'Decisão compartilhada (King’s College London, 2025) e participação do usuário (Corrêa et al., 2026).',
-  },
-  {
-    title: 'Atenção às reações adversas',
-    action:
-      'Registro simples de sintomas, monitoramento de peso, pressão e pulso quando indicado e notificação no VigiMed.',
-    basis: 'Diferenças de efeitos físicos entre antidepressivos (King’s College London, 2025) e manejo de reações (Araújo et al., 2023).',
-  },
-  {
-    title: 'Interrupção segura',
-    action:
-      'Canal “antes de parar, fale com a gente”, busca ativa de quem falta às consultas e redução gradual definida pelo prescritor.',
-    basis: 'Abandono do tratamento (Floriano et al., 2026) e riscos da retirada abrupta (Castro; Del-Ben, 2024).',
-  },
-  {
-    title: 'Revisão da medicação',
-    action:
-      'Lista única de medicamentos, compartilhada entre CAPS, UBS e demais prescritores, para identificar duplicidades e interações.',
-    basis: 'Polifarmácia e terapia duplicada (Floriano et al., 2026) e cuidado com mais de um médico (Araújo et al., 2023).',
-  },
-  {
-    title: 'Educação e apoio',
-    action:
-      'Grupos com usuários e familiares, linguagem simples e combate ao estigma, com alternativas não medicamentosas e atenção às condições sociais.',
-    basis: 'Educação em saúde (Araújo et al., 2023), cuidado além do medicamento (Floriano et al., 2026) e estigma (Ministério da Saúde, 2026).',
-  },
-  {
-    title: 'Segurança na urgência',
-    action:
-      'Cartão de medicamentos para a pessoa carregar e capacitação de UBS e pronto-atendimento sobre reações agudas graves.',
-    basis: 'Importância de perguntar sempre quais medicamentos a pessoa usa (Castro; Del-Ben, 2024).',
-  },
-]
-
-export type ProposalStep = {
-  title: string
-  duration: string
-  description: string
-}
-
-export const proposalSteps: ProposalStep[] = [
-  {
-    title: 'Diagnóstico local',
-    duration: '2 meses',
-    description:
-      'Mapear a equipe, a presença de farmacêutico, os fluxos e as principais dificuldades.',
-  },
-  {
-    title: 'Preparação',
-    duration: '1 mês',
-    description:
-      'Treinar a equipe, criar os materiais e escolher um instrumento validado para medir a adesão.',
-  },
-  {
-    title: 'Piloto',
-    duration: '6 meses',
-    description: 'Aplicar os eixos em um grupo definido de usuários.',
-  },
-  {
-    title: 'Avaliação',
-    duration: '1 mês',
-    description: 'Analisar os resultados e decidir ajustes e expansão.',
-  },
-]
-
-export const proposalIndicators = [
-  'Pessoas com plano compartilhado registrado',
-  'Contatos realizados até o 3º mês',
-  'Adesão, sempre medida com o mesmo instrumento',
-  'Reações adversas registradas e notificadas',
-  'Interrupções sem orientação',
-  'Listas de medicamentos revisadas e problemas resolvidos',
-  'Experiência relatada pelos usuários',
-]
-
-export const proposalLimits =
-  'As fontes sustentam cada eixo separadamente, mas não testaram este conjunto completo. Prazos, cartão de medicamentos e combinação dos eixos são sugestões desta proposta, e as metas devem ser definidas após o diagnóstico local. A proposta precisa de revisão por profissionais de saúde e pela gestão local antes de ser aplicada.'
 
 export type Reference = {
   citation: string
