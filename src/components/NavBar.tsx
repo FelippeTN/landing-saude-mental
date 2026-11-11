@@ -83,7 +83,7 @@ export function NavBar() {
             href="#"
             className="shrink-0 rounded-lg text-lg font-black tracking-tight sm:text-xl"
           >
-            Cuidar em Dia
+            Mente em Dia
           </a>
 
           <nav aria-label="Seções da página" className="w-full min-w-0 sm:w-auto">
